@@ -1,0 +1,69 @@
+# GitHub Actions Workflow for Daily Content Generation
+# PRD Reference: Section 3.2 - Automation Engine
+
+name: Daily Content Generation
+
+on:
+  schedule:
+    # Run daily at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * *'
+
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  generate-content:
+    name: Generate and Publish Content
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Run content generator
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          CHUTES_LLM_API_KEY: ${{ secrets.CHUTES_LLM_API_KEY }}
+          CHUTES_IMAGE_API_KEY: ${{ secrets.CHUTES_IMAGE_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python scripts/daily_content_generator.py
+
+      - name: Check for new content
+        id: check-content
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check-content.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/content/
+          git commit -m "chore: daily content update $(date +'%Y-%m-%d')" || exit 0
+          git push
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Content generation failed. Check logs for details."
+          # Add notification logic here (email, Slack, etc.)

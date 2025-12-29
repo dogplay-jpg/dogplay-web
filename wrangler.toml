@@ -1,0 +1,28 @@
+# Cloudflare Pages Configuration
+# https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+name = "dogplay-agent"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [
+  { pattern = "/*", zone_name = "dogplay.io" }
+]
+
+[env.preview]
+routes = [
+  { pattern = "/*", zone_name = "dogplay-agent.pages.dev" }
+]
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
+watch_paths = ["src/**", "public/**"]
+
+# Environment variables (can also be set in Cloudflare dashboard)
+[vars]
+NODE_ENV = "production"
+
+# Secrets should be set via: wrangler secret put <NAME>
+# or in Cloudflare dashboard

@@ -1,0 +1,12 @@
+# Robots.txt for Dogplay Agent
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+
+# Disallow admin/ops areas
+Disallow: /ops/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://dogplay.io/sitemap.xml

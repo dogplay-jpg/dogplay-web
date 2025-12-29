@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "title": "Dogplay Agent - High Revenue Affiliate Program in India",
+    "description": "Join the Dogplay Agent program and earn up to 45% RevShare with CPA options. Trusted by top Indian affiliates with crypto payments and 24/7 support.",
+    "keywords": "Dogplay agent, betting affiliate India, cricket betting affiliate, iGaming partner program"
+  },
+  "hero": {
+    "badge": "#1 Affiliate Program in India",
+    "title": "Earn Up to 45% Revenue Share with Dogplay Agent",
+    "subtitle": "Join thousands of successful affiliates promoting India's most trusted betting platform. Competitive CPA, lifetime RevShare, and instant crypto payouts.",
+    "cta": {
+      "primary": "Join Now - Free",
+      "secondary": "Calculate Earnings"
+    }
+  },
+  "features": {
+    "title": "Why Choose Dogplay Agent?",
+    "subtitle": "Maximum earnings with complete transparency",
+    "items": {
+      "commission": {
+        "title": "Competitive Commission",
+        "description": "Earn up to 45% RevShare or choose CPA up to $200 per active player. Flexible plans for your traffic."
+      },
+      "payment": {
+        "title": "Fast Crypto Payouts",
+        "description": "Receive payments instantly in USDT, BTC, or other cryptocurrencies. No delays, no hassles."
+      },
+      "tracking": {
+        "title": "Real-time Tracking",
+        "description": "Monitor your players, commissions, and performance with our advanced dashboard and analytics."
+      },
+      "support": {
+        "title": "Dedicated Support",
+        "description": "24/7 personal affiliate manager ready to help you maximize your earnings."
+      }
+    }
+  },
+  "calculator": {
+    "title": "Estimate Your Monthly Earnings",
+    "subtitle": "See how much you can earn as a Dogplay affiliate",
+    "players": "Monthly Active Players",
+    "revenue": "Avg Revenue per Player (INR)",
+    "commission": "Commission Rate",
+    "estimated": "Estimated Monthly Earnings",
+    "cta": "Start Earning Today"
+  },
+  "onboarding": {
+    "title": "Start Earning in 3 Simple Steps",
+    "subtitle": "Quick and easy registration process",
+    "steps": {
+      "1": {
+        "title": "Create Your Account",
+        "description": "Sign up for free in just 2 minutes. No verification required to start."
+      },
+      "2": {
+        "title": "Get Your Referral Link",
+        "description": "Access marketing materials and tracking links from your dashboard."
+      },
+      "3": {
+        "title": "Earn & Withdraw",
+        "description": "Promote to your audience and watch your commissions grow. Withdraw anytime."
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "payment": {
+        "question": "How do I receive my payments?",
+        "answer": "We offer instant cryptocurrency payments (USDT, BTC, ETH) and bank transfers for Indian affiliates. Minimum withdrawal is ₹5,000 for crypto and ₹10,000 for bank transfer."
+      },
+      "commission": {
+        "question": "What commission plans are available?",
+        "answer": "We offer both RevShare (up to 45% lifetime) and CPA (up to $200 per player) plans. You can also choose a hybrid plan combining both. Contact your affiliate manager to customize your plan."
+      },
+      "cricket": {
+        "question": "Do you support cricket betting promotions?",
+        "answer": "Absolutely! Cricket is our most popular sport. We provide IPL, international cricket, and T20 league marketing materials with competitive odds that attract Indian players."
+      },
+      "tracking": {
+        "question": "How long is the cookie duration?",
+        "answer": "We offer lifetime tracking. Once a player registers through your link, you earn commission from their activity forever - no cookie expiration."
+      },
+      "negative": {
+        "question": "Is there negative carryover?",
+        "answer": "No negative carryover! Each month starts fresh. If your players have a winning month, it doesn't affect your future earnings."
+      }
+    }
+  },
+  "footer": {
+    "description": "Join India's fastest-growing betting affiliate program. Start earning today with Dogplay Agent.",
+    "links": {
+      "about": "About Us",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclosure": "Affiliate Disclosure",
+      "responsible": "Responsible Gambling"
+    },
+    "legal": {
+      "copyright": "© {year} Dogplay Agent. All rights reserved.",
+      "age": "18+ Only. Gambling involves risk. Please play responsibly.",
+      "license": "Licensed and regulated for fair gaming practices."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "join": "Join Now",
+    "langSwitch": "हिन्दी"
+  },
+  "blog": {
+    "title": "Latest Insights",
+    "description": "Stay updated with iGaming and cricket betting news",
+    "readMore": "Read More",
+    "allPosts": "All Articles"
+  },
+  "about": {
+    "title": "About Dogplay Agent",
+    "description": "Your trusted partner in iGaming affiliate marketing",
+    "mission": "Our Mission",
+    "missionText": "To provide Indian affiliates with the most transparent, profitable, and reliable partnership program in the iGaming industry.",
+    "editorial": "Editorial Guidelines",
+    "editorialText": "We are committed to providing accurate, up-to-date information about the iGaming industry. Our content is sourced from verified news outlets and industry publications.",
+    "team": "Our Team",
+    "teamText": "Based in India, our team has over 10 years of combined experience in iGaming and affiliate marketing."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Get in touch with our team",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "email": "Email",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "compliance": {
+    "disclosure": {
+      "title": "Affiliate Disclosure",
+      "content": "Some links on this website are affiliate links. This means if you click on the link and register on Dogplay, we may receive a commission at no additional cost to you. We only promote products and services we believe provide value to our readers. Our recommendations are based on genuine assessments and our experience with the platform."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated: {date}",
+      "intro": "This Privacy Policy describes how we collect, use, and protect your information on the Dogplay Agent website.",
+      "collection": {
+        "title": "Information We Collect",
+        "personal": "Personal Information: Name, email address, and contact details you provide when contacting us or registering for our affiliate program.",
+        "technical": "Technical Information: IP address, browser type, device information, and browsing behavior through cookies and similar technologies.",
+        "usage": "Usage Information: Pages visited, time spent, and actions taken on our website."
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "items": [
+          "To respond to your inquiries and provide support",
+          "To improve our website and services based on user feedback",
+          "To send you updates about our affiliate program (with your consent)",
+          "To analyze website traffic and user behavior for optimization purposes"
+        ]
+      },
+      "sharing": {
+        "title": "Information Sharing",
+        "content": "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted partners who assist us in operating our website, conducting our business, or servicing you, subject to strict confidentiality obligations."
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "content": "We use cookies to enhance your browsing experience, analyze site traffic, and for affiliate tracking purposes. You can control cookie settings through your browser preferences."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "items": [
+          "Access to your personal data",
+          "Correction of inaccurate data",
+          "Deletion of your data",
+          "Opt-out of marketing communications",
+          "Data portability"
+        ]
+      },
+      "contact": "For privacy-related inquiries, please contact us at privacy@dogplay.io"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated: {date}",
+      "intro": "By accessing or using the Dogplay Agent website, you agree to be bound by these Terms of Service.",
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "Your use of this website constitutes acceptance of these terms. If you do not agree, please do not use this website."
+      },
+      "eligibility": {
+        "title": "Eligibility",
+        "content": "You must be at least 18 years old to use this website. By using this site, you represent that you meet this age requirement."
+      },
+      "affiliate": {
+        "title": "Affiliate Program Terms",
+        "items": [
+          "Commissions are calculated based on qualified referrals who meet the minimum deposit and activity requirements",
+          "Fraudulent traffic or self-referrals will result in immediate account termination",
+          "We reserve the right to modify commission structures with 30 days notice",
+          "Payment processing times vary by method selected",
+          "All marketing materials must be approved before use"
+        ]
+      },
+      "prohibited": {
+        "title": "Prohibited Activities",
+        "items": [
+          "Spamming or unsolicited promotional activities",
+          "Misleading advertising about potential earnings",
+          "Targeting minors or restricted jurisdictions",
+          "Using brand trademarks without permission",
+          "Any form of click fraud or bot traffic"
+        ]
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "We reserve the right to terminate any affiliate account that violates these terms or engages in fraudulent activity."
+      },
+      "limitation": {
+        "title": "Limitation of Liability",
+        "content": "We are not liable for any damages arising from your use of this website or participation in the affiliate program."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We may update these terms at any time. Continued use of the website constitutes acceptance of changes."
+      }
+    },
+    "responsible": {
+      "title": "Responsible Gambling",
+      "intro": "Dogplay is committed to promoting responsible gambling practices. We believe gambling should be entertaining and never cause harm.",
+      "warning": "WARNING: Gambling involves risk. Only gamble with money you can afford to lose.",
+      "principles": {
+        "title": "Our Responsible Gambling Principles",
+        "items": [
+          {
+            "title": "Age Restriction",
+            "content": "Strict 18+ age verification and enforcement. We never target minors in our marketing."
+          },
+          {
+            "title": "Self-Exclusion",
+            "content": "Players can request temporary or permanent self-exclusion from the platform."
+          },
+          {
+            "title": "Deposit Limits",
+            "content": "Tools to set daily, weekly, or monthly deposit limits to control spending."
+          },
+          {
+            "title": "Time Limits",
+            "content": "Session time reminders and limits to help manage playing time."
+          },
+          {
+            "title": "Reality Checks",
+            "content": "Pop-up reminders showing time spent and money wagered during sessions."
+          }
+        ]
+      },
+      "signs": {
+        "title": "Signs of Problem Gambling",
+        "items": [
+          "Gambling more than you can afford to lose",
+          "Chasing losses or borrowing money to gamble",
+          "Neglecting work, family, or personal responsibilities",
+          "Lying about gambling habits to loved ones",
+          "Feeling anxious or irritable when not gambling"
+        ]
+      },
+      "resources": {
+        "title": "Help & Support Resources",
+        "description": "If you or someone you know is struggling with gambling-related issues, help is available:",
+        "items": [
+          {
+            "name": "National Problem Gambling Helpline",
+            "contact": "1-800-522-4700 (24/7)",
+            "website": "https://www.ncpgambling.org/"
+          },
+          {
+            "name": "Gamblers Anonymous India",
+            "contact": "Online meetings available",
+            "website": "https://www.gamblersanonymous.org/"
+          },
+          {
+            "name": "AASRA (Suicide Prevention)",
+            "contact": "91-22-27546669",
+            "website": "http://www.aasra.info/"
+          }
+        ]
+      },
+      "advice": {
+        "title": "Tips for Responsible Gambling",
+        "items": [
+          "Set a budget and never exceed it",
+          "Treat gambling as entertainment, not a way to make money",
+          "Never chase losses - accept them as the cost of entertainment",
+          "Take regular breaks and set time limits",
+          "Don't gamble when under the influence of alcohol or drugs",
+          "Balance gambling with other activities"
+        ]
+      }
+    }
+  },
+  "currencies": {
+    "inr": "₹",
+    "usd": "$"
+  }
+}
