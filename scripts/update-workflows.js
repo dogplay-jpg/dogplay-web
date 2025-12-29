@@ -1,0 +1,120 @@
+const fs = require('fs');
+
+const dailyContent = `# GitHub Actions Workflow for Daily Content Generation
+# Uses Groq API for free LLM-based content generation
+
+name: Daily Content Generation
+
+on:
+  schedule:
+    # Run daily at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * *'
+
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      topic:
+        description: 'Topic index (0-6, or random if empty)'
+        required: false
+        default: ''
+
+jobs:
+  generate-content:
+    name: Generate Blog Content
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: \${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run content generator
+        env:
+          GROQ_API_KEY: \${{ secrets.GROQ_API_KEY }}
+          BRAVE_SEARCH_API_KEY: \${{ secrets.BRAVE_SEARCH_API_KEY }}
+        run: |
+          node scripts/generate-blog-groq-only.js \${{ github.event.inputs.topic }}
+
+      - name: Check for new content
+        id: check-content
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check-content.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/content/
+          git commit -m "chore: daily content update $(date +'%Y-%m-%d')" || exit 0
+          git push
+`;
+
+const deploy = `# GitHub Actions Workflow for Deployment to Cloudflare Pages
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js application
+        env:
+          NEXT_PUBLIC_SITE_URL: https://dogplay.io
+          GROQ_API_KEY: \${{ secrets.GROQ_API_KEY }}
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: \${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: \${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .next --project-name=dogplay-agent
+
+      - name: Deploy success notification
+        if: success()
+        run: |
+          echo "Deployment successful!"
+          echo "Site: https://dogplay-agent.pages.dev"
+`;
+
+fs.writeFileSync('E:/dpy1/.github/workflows/daily-content.yml', dailyContent);
+fs.writeFileSync('E:/dpy1/.github/workflows/deploy.yml', deploy);
+console.log('Updated workflow files');

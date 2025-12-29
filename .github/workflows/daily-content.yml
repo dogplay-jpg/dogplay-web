@@ -1,5 +1,5 @@
 # GitHub Actions Workflow for Daily Content Generation
-# PRD Reference: Section 3.2 - Automation Engine
+# Uses Groq API for free LLM-based content generation
 
 name: Daily Content Generation
 
@@ -9,10 +9,15 @@ on:
     - cron: '30 3 * * *'
 
   workflow_dispatch:  # Allow manual triggering
+    inputs:
+      topic:
+        description: 'Topic index (0-6, or random if empty)'
+        required: false
+        default: ''
 
 jobs:
   generate-content:
-    name: Generate and Publish Content
+    name: Generate Blog Content
     runs-on: ubuntu-latest
 
     permissions:
@@ -24,25 +29,17 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Install Python dependencies
-        run: |
-          pip install -r scripts/requirements.txt
+          node-version: '20'
 
       - name: Run content generator
         env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
-          CHUTES_LLM_API_KEY: ${{ secrets.CHUTES_LLM_API_KEY }}
-          CHUTES_IMAGE_API_KEY: ${{ secrets.CHUTES_IMAGE_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
-          python scripts/daily_content_generator.py
+          node scripts/generate-blog-groq-only.js ${{ github.event.inputs.topic }}
 
       - name: Check for new content
         id: check-content
@@ -61,9 +58,3 @@ jobs:
           git add src/content/
           git commit -m "chore: daily content update $(date +'%Y-%m-%d')" || exit 0
           git push
-
-      - name: Notify on failure
-        if: failure()
-        run: |
-          echo "Content generation failed. Check logs for details."
-          # Add notification logic here (email, Slack, etc.)
