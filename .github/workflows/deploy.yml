@@ -29,14 +29,17 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build
+      - name: Build Next.js
         env:
           NEXT_PUBLIC_SITE_URL: https://dogplay.io
         run: npm run build
+
+      - name: Build for Cloudflare Pages
+        run: npx @cloudflare/next-on-pages
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .next --project-name=dogplay-web
+          command: pages deploy .vercel/output/static --project-name=dogplay-web
