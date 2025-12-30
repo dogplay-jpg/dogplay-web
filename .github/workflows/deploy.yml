@@ -1,5 +1,4 @@
-# GitHub Actions Workflow for Deployment to Cloudflare Pages
-# Using @cloudflare/next-on-pages adapter for Next.js
+# GitHub Actions Workflow for Cloudflare Pages Deployment
 
 name: Deploy to Cloudflare Pages
 
@@ -11,45 +10,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  deploy:
+    name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       deployments: write
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
+          cache: npm
 
-      - name: Install dependencies
+      - name: Install
         run: npm ci
 
-      - name: Build Next.js application
+      - name: Build
         env:
           NEXT_PUBLIC_SITE_URL: https://dogplay.io
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages with Next.js adapter
-        uses: cloudflare/pages-action@v1
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: dogplay-web
-          directory: .next
-          # Compatibility flags for Next.js
-          compatibilityFlags: nodejs_compat
-          compatibilityDate: '2024-01-01'
-
-      - name: Deploy success notification
-        if: success()
-        run: |
-          echo "Deployment successful!"
-          echo "Site: https://dogplay-web.pages.dev"
+          command: pages deploy .next --project-name=dogplay-web
