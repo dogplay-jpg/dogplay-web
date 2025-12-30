@@ -20,8 +20,8 @@ git push -u origin main
 
 | Secret 名称 | 值 |
 |------------|---|
-| `GROQ_API_KEY` | `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` |
-| `BRAVE_SEARCH_API_KEY` | `BSAUcMmrNxLEbhLsNRnfZasu8D8BRIf` |
+| `GROQ_API_KEY` | `FROM_GROQ_CONSOLE` |
+| `BRAVE_SEARCH_API_KEY` | `FROM_BRAVE_CONSOLE` |
 | `CLOUDFLARE_API_TOKEN` | 从 https://dash.cloudflare.com/profile/api-tokens 获取 |
 | `CLOUDFLARE_ACCOUNT_ID` | 从 Cloudflare dashboard 获取 |
 

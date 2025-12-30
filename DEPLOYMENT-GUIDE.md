@@ -92,7 +92,7 @@ git push -u origin main
 |------------|---|
 | `CLOUDFLARE_API_TOKEN` | 上一步复制的 API Token |
 | `CLOUDFLARE_ACCOUNT_ID` | 你的 Cloudflare Account ID |
-| `GROQ_API_KEY` | `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` |
+| `GROQ_API_KEY` | 从 https://console.groq.com/ 获取（免费） |
 
 ### 2.3 启用 GitHub Actions 自动部署
 
