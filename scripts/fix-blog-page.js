@@ -1,4 +1,6 @@
-import { notFound } from 'next/navigation';
+const fs = require('fs');
+
+const content = `import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { getPostBySlug, markdownToHtml, getAllPostSlugs } from '@/lib/content';
@@ -52,10 +54,10 @@ export default async function BlogPostPage({
               },
             },
             description: post.excerpt,
-            url: `https://dogplay.io${locale === 'en' ? '' : `/${locale}`}/blog/${slug}`,
+            url: \`https://dogplay.io\${locale === 'en' ? '' : \`/\${locale}\`}/blog/\${slug}\`,
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://dogplay.io${locale === 'en' ? '' : `/${locale}`}/blog/${slug}`,
+              '@id': \`https://dogplay.io\${locale === 'en' ? '' : \`/\${locale}\`}/blog/\${slug}\`,
             },
           }),
         }}
@@ -63,7 +65,7 @@ export default async function BlogPostPage({
 
       <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <Link
-          href={`/${locale === 'en' ? '' : locale}/blog`}
+          href={\`/\${locale === 'en' ? '' : locale}/blog\`}
           className="inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-700"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -121,3 +123,7 @@ export default async function BlogPostPage({
     </>
   );
 }
+`;
+
+fs.writeFileSync('E:/dpy1/src/app/[locale]/blog/[slug]/page.tsx', content);
+console.log('Fixed blog/[slug]/page.tsx');

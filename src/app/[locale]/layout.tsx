@@ -84,19 +84,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale === 'hi' ? 'hi-IN' : 'en-IN'} className={inter.variable}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href={`https://dogplay.io${locale === 'en' ? '' : `/${locale}`}`} />
-        {locales.map((loc) => (
-          <link
-            key={loc}
-            rel="alternate"
-            hrefLang={loc === 'hi' ? 'hi-IN' : 'en-IN'}
-            href={`https://dogplay.io${loc === 'en' ? '' : `/${loc}`}`}
-          />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href="https://dogplay.io" />
-      </head>
+      <head />
       <body className="min-h-screen bg-gray-50 antialiased">
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">

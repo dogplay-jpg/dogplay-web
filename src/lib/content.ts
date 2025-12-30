@@ -89,6 +89,25 @@ function getPostDirs(): string[] {
 }
 
 /**
+ * Get all post slugs for static generation
+ */
+export function getAllPostSlugs(): string[] {
+  const dirs = getPostDirs();
+  const slugs: string[] = [];
+
+  for (const dir of dirs) {
+    const filePath = path.join(CONTENT_DIR, dir, 'index.mdx');
+    if (!fs.existsSync(filePath)) continue;
+
+    // Extract slug from directory name (date-slug format)
+    const slug = dir.split('-').slice(3).join('-');
+    slugs.push(slug);
+  }
+
+  return slugs;
+}
+
+/**
  * Get all posts for listing
  */
 export function getAllPosts(): PostListItem[] {

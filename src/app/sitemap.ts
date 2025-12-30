@@ -1,6 +1,10 @@
 import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/config';
 
+// Force static export for sitemap
+
+export const dynamic = 'force-static';
+
 const baseUrl = 'https://dogplay.io';
 
 const staticPages = [
