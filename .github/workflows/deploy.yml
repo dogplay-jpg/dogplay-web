@@ -42,10 +42,10 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .next --project-name=dogplay-agent
+          command: pages deploy .next --project-name=dogplay-web
 
       - name: Deploy success notification
         if: success()
         run: |
           echo "Deployment successful!"
-          echo "Site: https://dogplay-agent.pages.dev"
+          echo "Site: https://dogplay-web.pages.dev"
